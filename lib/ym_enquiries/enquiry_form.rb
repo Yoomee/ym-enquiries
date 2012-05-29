@@ -79,6 +79,10 @@ module YmEnquiries::EnquiryForm
       define_method(:form_title) {title}
     end
     
+    def intro(intro)
+      define_method(:form_intro) {intro}
+    end
+    
   end
   
 end

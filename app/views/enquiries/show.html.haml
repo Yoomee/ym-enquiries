@@ -1,0 +1,12 @@
+%h1=title("Enquiry")
+
+%dl.dl-horizontal
+  -@enquiry.enquiry_fields.each do |field|
+    %dt=field.name.humanize
+    %dd=field.value
+  %dt Sent on
+  %dd=@enquiry. created_at.to_s(:date_and_time)
+
+=options_panel do
+  =back_link
+  =link_to("Delete", @enquiry, :confirm => 'Are you sure?', :method => :delete)

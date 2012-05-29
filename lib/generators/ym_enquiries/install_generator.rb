@@ -7,11 +7,13 @@ module YmEnquiries
       desc "Installs YmEnquiries."
 
       def manifest
+        copy_file "controllers/enquiries_controller.rb", "app/controllers/enquiries_controller.rb"        
+        copy_file "models/enquiry.rb", "app/models/enquiry.rb"
         try_migration_template "migrations/create_enquiries.rb", "db/migrate/create_enquiries"
         try_migration_template "migrations/create_enquiry_fields.rb", "db/migrate/create_enquiry_fields"
         
-        if should_add_abilities?('YmEnquiry::Enquiry')
-          add_ability(:open, "can :create, YmEnquiry::Enquiry")
+        if should_add_abilities?('Enquiry')
+          add_ability(:open, "can :create, Enquiry")
         end
         
       end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe YmEnquiries::Enquiry do
+describe Enquiry do
   
   it { should have_many(:enquiry_fields) }
 
