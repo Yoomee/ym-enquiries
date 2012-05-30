@@ -8,5 +8,5 @@
   %dd=@enquiry. created_at.to_s(:date_and_time)
 
 =options_panel do
-  =back_link
+  =link_to("Back", enquiries_path)
   =link_to("Delete", @enquiry, :confirm => 'Are you sure?', :method => :delete)
