@@ -17,9 +17,9 @@ module YmEnquiries::Enquiry
   end
 
   def form_name=(value)
-    write_attribute(:form_name, value)
+    write_attribute(:form_name, value.to_s)
     load_enquiry_form_module!
-    value
+    value.to_s
   end
   
   def full_name
@@ -38,6 +38,7 @@ module YmEnquiries::Enquiry
     end
   end
 
+  private
   def load_enquiry_form_module!
     if form_name.present? && !loaded_enquiry_form_module
       self.loaded_enquiry_form_module = true

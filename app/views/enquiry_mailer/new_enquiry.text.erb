@@ -1,0 +1,13 @@
+A new enquiry has been made on the <%=Settings.site_name%> website for the form '<%=@enquiry.form_title%>'.
+
+Overview:
+
+<%@enquiry.enquiry_fields.sort_by_field_order.each do |field|%>
+  <%if field.value.present? && !field.name.ends_with?("uid")%>
+    <%="#{field.name.humanize}: #{field.value}\n"%>
+  <%end%>
+<%end%>
+
+Use the following link to view this enquiry:
+
+<%=Settings.site_url + enquiry_path(@enquiry)%>

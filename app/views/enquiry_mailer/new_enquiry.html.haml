@@ -1,0 +1,12 @@
+%p
+  ="A new enquiry has been made on the #{Settings.site_name} website for the form '#{@enquiry.form_title}'."
+%h3 Overview
+%ul
+  -@enquiry.enquiry_fields.sort_by_field_order.each do |field|
+    -if field.value.present? && !field.name.ends_with?("uid")
+      %li
+        ="#{field.name.humanize}: #{field.value}"
+%p
+  ="Use the following link to view this enquiry:"
+%p
+  =Settings.site_url + enquiry_path(@enquiry)
