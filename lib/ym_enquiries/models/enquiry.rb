@@ -25,7 +25,7 @@ module YmEnquiries::Enquiry
   def full_name
     first_name = enquiry_fields.find_by_name("first_name").try(:value).presence || enquiry_fields.find_by_name("forename").try(:value)
     last_name = enquiry_fields.find_by_name("last_name").try(:value).presence || enquiry_fields.find_by_name("surname").try(:value)
-    "#{first_name} #{last_name}".strip.presence
+    "#{first_name} #{last_name}".strip.presence || enquiry_fields.find_by_name("name").try(:value).presence
   end
   
   def initialize(attrs = {})

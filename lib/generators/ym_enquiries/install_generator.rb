@@ -14,6 +14,7 @@ module YmEnquiries
         
         if should_add_abilities?('Enquiry')
           add_ability(:open, "can :create, Enquiry")
+          insert_into_file "app/controllers/enquiries_controller.rb", "\n  load_and_authorize_resource", :after => "include YmEnquiries::EnquiriesController"
         end
         
       end

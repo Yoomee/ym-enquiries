@@ -80,7 +80,7 @@ module YmEnquiries::EnquiryForm
     end
     
     def intro(intro)
-      define_method(:form_intro) {intro}
+      define_method(:form_intro) {intro.html_safe}
     end
     
   end
