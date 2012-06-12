@@ -1,4 +1,9 @@
-%h1=title("Enquiries")
+%h1
+  -if params[:form_name].present?
+    =title("#{params[:form_name].humanize} enquiries")
+  -else
+    =title("Enquiries")
+    
 -if @enquiries.empty?
   %p
     There are currently no enquiries.
@@ -6,7 +11,8 @@
   %table.table.table-bordered.table-striped
     %thead
       %tr
-        %th
+        -if params[:form_name].blank?
+          %th
         %th Name
         %th Email
         %th Date
@@ -14,7 +20,8 @@
     %tbody
       -@enquiries.each do |enquiry|
         %tr
-          %td=enquiry.form_name.humanize
+          -if params[:form_name].blank?
+            %td=enquiry.form_name.humanize
           %td=enquiry.full_name if enquiry.full_name.present?
           %td=enquiry.email_address if enquiry.email_address.present?
           %td=enquiry.created_at.to_s(:date_and_time)

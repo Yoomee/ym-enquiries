@@ -19,7 +19,10 @@ module YmEnquiries::EnquiriesController
    end
 
   def index
-    @enquiries = Enquiry.all(:order => "created_at DESC")
+    @enquiries = Enquiry.order("created_at DESC")
+    if params[:form_name]
+      @enquiries.where(:form_name => params[:form_name])
+    end
   end
 
   def new
@@ -36,7 +39,6 @@ module YmEnquiries::EnquiriesController
   
   def show
     @enquiry = Enquiry.find(params[:id])
-    # @enquiry.load_enquiry_form_module!
   end
     
 end
