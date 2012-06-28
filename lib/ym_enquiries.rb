@@ -1,3 +1,4 @@
+require "ym_core"
 require "ym_enquiries/engine"
 
 module YmEnquiries
