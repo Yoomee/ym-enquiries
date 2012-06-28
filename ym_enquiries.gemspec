@@ -7,8 +7,8 @@ require "ym_enquiries/version"
 Gem::Specification.new do |s|
   s.name        = "ym_enquiries"
   s.version     = YmEnquiries::VERSION
-  s.authors     = ["Matt Atkins", "Ian Mooney"]
-  s.email       = ["matt@yoomee.com", "ian@yoomee.com"]
+  s.authors     = ["Matt Atkins", "Ian Mooney", "Edward Andrews"]
+  s.email       = ["matt@yoomee.com", "ian@yoomee.com", "edward@yoomee.com"]
   s.homepage    = "http://www.yoomee.com"
   s.summary     = "Summary of YmEnquiries."
   s.description = "Description of YmEnquiries."
