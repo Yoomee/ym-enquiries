@@ -12,7 +12,7 @@ class YmEnquiries::EnquiryMailer < ActionMailer::Base
   
   private
   def enquiry_template_name(enquiry)
-    if ApplicationController.view_paths.any? {|path| Dir["#{path}/enquiry_mailer/#{enquiry.form_name}*"].present?}
+    if ApplicationController.view_paths.any? {|path| Dir["#{path}/enquiry_mailer/#{enquiry.form_name}.*"].present?}
       enquiry.form_name
     else
       "new_enquiry"
