@@ -30,7 +30,17 @@ module YmEnquiries::EnquiriesController
       render_404
     else
       begin
-        @enquiry = Enquiry.new(:form_name => params[:id].to_s)  
+        form_name = params[:id].to_s
+        attrs = {:form_name => form_name}
+        if defined?(current_user) && current_user
+          enquiry_standard_fields = %w[first_name last_name email]
+          enquiry_standard_fields.each do |standard_field|
+            if Enquiry.new(:form_name => form_name).respond_to?(standard_field.to_sym)
+              attrs.merge!(current_user.attributes.slice(standard_field))
+            end
+          end
+        end
+        @enquiry = Enquiry.new(attrs)
       rescue NameError
         render_404
       end
