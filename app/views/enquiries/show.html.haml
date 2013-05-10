@@ -3,7 +3,7 @@
 %dl.dl-horizontal
   -@enquiry.enquiry_fields.each do |field|
     %dt=field.name.humanize
-    %dd=field.value
+    %dd=field.value.presence || '&nbsp;'.html_safe
   %dt Sent on
   %dd=@enquiry.created_at.to_s(:date_and_time)
 
