@@ -2,5 +2,5 @@
   =form.inputs do
     =form.input :form_name, :as => "hidden"
     =render("enquiries/#{@enquiry.form_name.downcase}_form", :enquiry => enquiry, :form => form)
-  =form.buttons do 
-    =form.commit_button "Send", :button_html => {:data => {:"loading-text" => 'Sending...'}}
+  =form.actions do 
+    =form.submit "Send", :inner_html => {:data => {:"loading-text" => 'Sending...'}}
