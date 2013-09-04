@@ -4,7 +4,7 @@ module YmEnquiries::Enquiry
     base.after_initialize :load_enquiry_form_module!
     base.has_many :enquiry_fields, :class_name => "YmEnquiries::EnquiryField", :dependent => :destroy do
       def sort_by_field_order
-        fields = proxy_owner.fields
+        fields = proxy_association.owner.fields
         sort_by {|field| fields.index(field.name.to_s) || fields.index(field.name.to_sym)}
       end
     end
