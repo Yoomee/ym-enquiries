@@ -3,4 +3,4 @@
     =form.input :form_name, :as => "hidden"
     =render("enquiries/#{@enquiry.form_name.downcase}_form", :enquiry => enquiry, :form => form)
   =form.actions do 
-    =form.submit "Send", :inner_html => {:data => {:"loading-text" => 'Sending...'}}
+    =form.submit 'Send', :inner_html => {:data => {:loading_text => 'Sending...'}}, :class => 'btn btn-primary'
